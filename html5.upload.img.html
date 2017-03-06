@@ -24,6 +24,7 @@
 					"png" : "iVBORw"
 				}
 			},
+			images:[],
 			valid:true,
 			fileSize:function(f){
 				console.log(f.size/1024)
@@ -49,6 +50,25 @@
 				img.src = src;
 
 				document.getElementById('prvid').appendChild(img);
+				this.saveImg(src);
+			},
+			saveImg:function(src){
+				var self = this;
+				$.ajax({
+			        type: 'post',
+			        url: "upload.php",
+			        data: self.images,
+			        dataType: "json",
+			        success: function(data) {
+			          if(data.status){
+			            console.log(data.msg);
+			            return false;
+			          }else{
+			            alert(data.msg);
+			            return false;
+			          }
+			        }
+			      });
 			},
 			imgType:function(data){
 				var filters = this.options.type;
@@ -80,6 +100,7 @@
 							console.log(self.valid)
 							if(self.valid){
 								self.showPrvImg(src);
+								self.images.push(src);
 							}
 
 						}
