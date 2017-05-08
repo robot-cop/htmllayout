@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="list.css" />
+
+	</head>
+
+	<body>
+		<ul class="flex-container list">
+			<li>
+				<a href=""><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494235343133&di=7ff7fcd827a009c0b4cdf83989f23793&imgtype=0&src=http%3A%2F%2Fww1.sinaimg.cn%2Fthumb180%2F005zeEDvgw1f1blj7f05ij30ku112mzi.jpg" /></a>
+				<div>
+					<h3>标题</h3>
+					<p class="desc">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+					<p class="time">创建时间：</p>
+				</div>
+				<p class="info">
+					<span>浏览次数：20</span>
+					<span class="auth">作者</span>
+				</p>
+			</li>
+			<li>
+				<a href=""><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494239107664&di=746ccbfd1d07e0fdd421ed6d20009dad&imgtype=0&src=http%3A%2F%2Fp3.music.126.net%2FQoRVveBKmgFMaOC-e_1Mcw%3D%3D%2F1390882220843739.jpg%3Fparam%3D640y300" /></a>
+				<div>
+					<h3>标题</h3>
+					<p class="desc">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+					<p class="time">创建时间：</p>
+				</div>
+				<p class="info">
+					<span>浏览次数：20</span>
+					<span class="auth">作者</span>
+				</p>
+			</li>
+			<li>
+				<a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2526615334,3811446025&fm=23&gp=0.jpg" /></a>
+				<div>
+					<h3>标题</h3>
+					<p class="desc">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+					<p class="time">创建时间：</p>
+				</div>
+				<p class="info">
+					<span>浏览次数：20</span>
+					<span class="auth">作者</span>
+				</p>
+			</li>
+		</ul>
+		<script src="http://s.kanzhun.com/js/jquery-2.1.1.min.js"></script>
+		<script src="imgResize.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$.imgResize({
+				imgListSelector: ".list img",
+				maxWidth: 230,
+				maxHeight: 130,
+				afterResize: function(img) {
+					var width = img.width(),
+						height = img.height(),
+						cssObj = {};
+					
+//					if(height == this.maxHeight) {
+//						cssObj = {
+//							'marginLeft': (this.maxWidth-width) / 2 + 'px'
+//						}
+//					} else {
+//						cssObj = {
+//							'marginTop': (this.maxHeight-height) / 2 + 'px'
+//						}
+//					}
+//					img.css(cssObj)
+					
+					if(height == this.maxHeight) {
+						cssObj = {
+							'paddingLeft': (this.maxWidth-width) / 2 + 'px'
+						}
+					} else {
+						cssObj = {
+							'paddingTop': (this.maxHeight-height) / 2 + 'px'
+						}
+					}
+					img.parent().css(cssObj)
+					
+				}
+			});
+		</script>
+	</body>
+
+</html>
